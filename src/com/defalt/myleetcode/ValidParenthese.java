@@ -13,40 +13,40 @@ class ValidParenthese {
 
         Stack<String> stack = new Stack();
         String[] sArray = s.split("");
-        for(String item : sArray){
-            if(item.equals("(") || item.equals("[") || item.equals("{")){
+        for (String item : sArray) {
+            if (item.equals("(") || item.equals("[") || item.equals("{")) {
                 stack.push(item);
             }
 
-            if(item.equals(")")){
+            if (item.equals(")")) {
 
                 String top = stack.peek();
-                if( top.equals("(")){
+                if (top.equals("(")) {
                     stack.pop();
-                }else{
+                } else {
                     return false;
                 }
-            }else if(item.equals("]")){
+            } else if (item.equals("]")) {
 
                 String top = stack.peek();
-                if( top.equals("[")){
+                if (top.equals("[")) {
                     stack.pop();
-                }else{
+                } else {
                     return false;
                 }
-            }else if(item.equals("}")){
+            } else if (item.equals("}")) {
 
                 String top = stack.peek();
-                if( top.equals("{")){
+                if (top.equals("{")) {
                     stack.pop();
-                }else{
+                } else {
                     return false;
                 }
             }
         }
-        if (stack.empty()){
+        if (stack.empty()) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
