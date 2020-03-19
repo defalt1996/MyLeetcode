@@ -1,4 +1,4 @@
-package com.defalt.myleetcode;
+package com.defalt.myleetcode.easy;
 /*
  *  author: Derrick
  *  Time: 2020/3/18 23:30
@@ -6,10 +6,10 @@ package com.defalt.myleetcode;
 
 import java.util.Stack;
 
-class ValidParenthese {
+public class ValidParenthese_20 {
 
     public boolean isValid(String s) {
-        // (40 )41  [91 ]93  {123 }125
+        // use stack
 
         Stack<String> stack = new Stack();
         String[] sArray = s.split("");
@@ -51,10 +51,6 @@ class ValidParenthese {
         }
     }
 
-    public static void main(String[] args) {
-        ValidParenthese solution = new ValidParenthese();
-        boolean result = solution.isValid("()");
-        System.out.println(result);
-    }
+
 
 }
