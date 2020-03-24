@@ -5,11 +5,11 @@ package com.defalt.myleetcode;
  */
 
 import com.defalt.myleetcode.easy.LongestCommonPrefix_14;
+import com.defalt.myleetcode.easy.Merge2SortedList_21;
 
 public class Solution {
     public static void main(String[] args) {
-        LongestCommonPrefix_14 test = new LongestCommonPrefix_14();
-        test.longestCommonPrefix(new String[]{"a"});
+
 
 
     }
