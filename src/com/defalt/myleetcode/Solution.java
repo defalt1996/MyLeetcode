@@ -4,9 +4,7 @@ package com.defalt.myleetcode;
  *  Time: 2020/3/19 15:31
  */
 
-import com.defalt.myleetcode.easy.LongestCommonPrefix_14;
-import com.defalt.myleetcode.easy.Merge2SortedList_21;
-import com.defalt.myleetcode.easy.RemoveElements_27;
+import com.defalt.myleetcode.leetcode.easy.RemoveElements_27;
 
 public class Solution {
     public static void main(String[] args) {

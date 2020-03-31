@@ -1,4 +1,4 @@
-package com.defalt.myleetcode.easy;
+package com.defalt.myleetcode.leetcode.easy;
 /*
  *  author: Derrick
  *  Time: 2020/3/19 22:08

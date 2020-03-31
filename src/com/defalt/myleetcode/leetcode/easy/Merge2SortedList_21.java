@@ -1,10 +1,8 @@
-package com.defalt.myleetcode.easy;
+package com.defalt.myleetcode.leetcode.easy;
 /*
  *  author: Derrick
  *  Time: 2020/3/20 0:03
  */
-
-import java.util.List;
 
 public class Merge2SortedList_21 {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
