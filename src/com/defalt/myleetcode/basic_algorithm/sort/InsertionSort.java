@@ -4,6 +4,8 @@ package com.defalt.myleetcode.basic_algorithm.sort;
  *  Time: 2020/4/1 16:51
  */
 
+import com.defalt.myleetcode.basic_algorithm.TestData;
+
 import java.util.Arrays;
 
 /*
@@ -29,14 +31,22 @@ public class InsertionSort implements IArraySort{
                     break;
                 }
             }
-            // 最后一次和j比较没有小于j，所以要放到j的后面
+            // 最后一次和j(前一个元素)比较没有小于j，所以要放到j的后面
             arr[j+1] = value;
 
         }
 
+        return arr;
 
-        return new int[0];
+    }
 
+    public static void main(String[] args) {
+        InsertionSort insertionSort = new InsertionSort();
+        int[] result = insertionSort.sort(TestData.testData_0);
+//        int[] result = insertionSort.sort(TestData.testData_1);
+        for (int i: result){
+            System.out.println(i);
+        }
 
     }
 }
