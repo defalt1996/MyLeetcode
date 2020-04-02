@@ -41,7 +41,8 @@ public class SelectionSort implements IArraySort{
 
 //        int[] result = bubbleSort.sort(TestData.testData_1);
 //        int[] result = bubbleSort.sort2(TestData.testData_1);
-        int[] result = selectionSort.sort(TestData.testData_1);
+//        int[] result = selectionSort.sort(TestData.testData_1);
+        int[] result = selectionSort.sort(TestData.testData_0);
         for (int i: result){
             System.out.println(i);
         }

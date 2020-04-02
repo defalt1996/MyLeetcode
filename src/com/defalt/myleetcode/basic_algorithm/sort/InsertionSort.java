@@ -27,12 +27,14 @@ public class InsertionSort implements IArraySort{
                 // 移动数据记得从队尾开始往外拉！
                 if (value< arr[j]){
                     arr[j+1] = arr[j];
-                }else {
-                    break;
+                    arr[j] = value;
                 }
+//                else {
+//                    break;
+//                }
             }
             // 最后一次和j(前一个元素)比较没有小于j，所以要放到j的后面
-            arr[j+1] = value;
+
 
         }
 
@@ -42,7 +44,7 @@ public class InsertionSort implements IArraySort{
 
     public static void main(String[] args) {
         InsertionSort insertionSort = new InsertionSort();
-        int[] result = insertionSort.sort(TestData.testData_0);
+        int[] result = insertionSort.sort(TestData.testData_1);
 //        int[] result = insertionSort.sort(TestData.testData_1);
         for (int i: result){
             System.out.println(i);
