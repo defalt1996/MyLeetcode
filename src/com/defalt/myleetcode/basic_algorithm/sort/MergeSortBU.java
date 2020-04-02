@@ -4,6 +4,8 @@ package com.defalt.myleetcode.basic_algorithm.sort;
  *  Time: 2020/4/2 16:44
  */
 
+import com.defalt.myleetcode.basic_algorithm.TestData;
+
 import java.util.Arrays;
 
 public class MergeSortBU implements IArraySort {
@@ -44,6 +46,17 @@ public class MergeSortBU implements IArraySort {
         }
 
         return arr;
+    }
+
+    public static void main(String[] args) {
+        MergeSortBU mergeSortBU = new MergeSortBU();
+//
+//        int[] result = shellSort.sort(TestData.testData_0);
+        int[] result = mergeSortBU.sort(TestData.testData_1);
+        for (int i : result) {
+            System.out.println(i);
+        }
+
     }
 
 }
