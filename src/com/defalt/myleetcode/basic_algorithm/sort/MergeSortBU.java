@@ -33,14 +33,17 @@ public class MergeSortBU implements IArraySort {
         int[] arr = Arrays.copyOf(arraySource, arraySource.length);
         int[] tempArr = new int[arr.length];
         int n = arr.length;
+        // 这里sz是组的大小，从1开始，每次循环组大小翻倍
         for (int sz = 1; sz< n; sz = sz+sz){
+            // 遍历数组开始合并，
             for (int lo = 0; lo< n-sz; lo+= sz + sz){
-                merge(arr, tempArr, lo, lo+sz-1, Math.min(lo+sz+sz-1, n-1));
+                // endIndex 对于数组长度不满足2的x次幂的数组，mid可能会大于end， 所以要求两者中小的来保证数组末尾不越界
+                int endIndex = Math.min(lo+sz+sz-1, n-1);
+                merge(arr, tempArr, lo, lo+sz-1, endIndex);
             }
         }
 
         return arr;
     }
-
 
 }
