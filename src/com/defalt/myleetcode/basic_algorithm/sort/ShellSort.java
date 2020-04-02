@@ -12,16 +12,6 @@ import java.util.Arrays;
 public class ShellSort implements IArraySort {
 
 
-    public static void main(String[] args) {
-        ShellSort shellSort = new ShellSort();
-//        int[] result = shellSort.sort(TestData.testData_0);
-        int[] result = shellSort.sort(TestData.testData_1);
-        for (int i : result) {
-            System.out.println(i);
-        }
-
-    }
-
     // 五分钟算法的实现
     public int[] sort1(int[] arraySource) {
 
@@ -111,5 +101,14 @@ public class ShellSort implements IArraySort {
         return arr;
     }
 
+    public static void main(String[] args) {
+        ShellSort shellSort = new ShellSort();
+//        int[] result = shellSort.sort(TestData.testData_0);
+        int[] result = shellSort.sort(TestData.testData_1);
+        for (int i : result) {
+            System.out.println(i);
+        }
+
+    }
 
 }
