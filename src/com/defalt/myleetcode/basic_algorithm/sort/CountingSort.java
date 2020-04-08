@@ -27,6 +27,7 @@ public class CountingSort implements IArraySort{
                 max = arr[i];
             }
         }
+
         int[] countArr = new int[max+1];
 
         // 遍历数组计数，填入计数数组
