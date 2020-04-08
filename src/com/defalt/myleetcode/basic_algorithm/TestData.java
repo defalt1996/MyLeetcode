@@ -10,6 +10,8 @@ public class TestData {
 
     public static int[] testData_1 = {8,2,5,9,7};
 
+    public static int[] testData_3 = {8,2,2,0,7,7};
+
     public static int[] testData_2 = {8,8,8,8,8};
 
 }
