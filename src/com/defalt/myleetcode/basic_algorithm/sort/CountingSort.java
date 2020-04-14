@@ -43,7 +43,7 @@ public class CountingSort implements IArraySort{
                 countArr[i] --;
                 index ++;
             }
-            // 五分钟学算法的实现，有错
+            // 五分钟学算法的实现，不可适用于有重复数据的数组
 //            if (countArr[i] > 0) {
 //                arr[index++] = i;
 //            }
