@@ -105,6 +105,59 @@ public class BST<Key extends Comparable<Key>, Value> {
             return x;
     }
 
+    public Key min(){
+        return min(root).key;
+    }
+
+    private Node min(Node x) {
+        if (x.left == null){
+            return x;
+        }
+        return min(x.left);
+    }
+
+    public void deleteMin(){
+        deleteMin(root);
+    }
+
+    private Node deleteMin(Node x) {
+        if (x.left == null){
+            return x.right;
+        }
+        x.left = deleteMin(x.left);
+        x.N = size(x.left) + size(x.right) +1;
+        return x;
+    }
+
+    public void delete(Key key){
+        root = delete(root, key);
+    }
+
+    private Node delete(Node x, Key key){
+
+        if (x == null){
+            return null;
+        }
+        int cmp = key.compareTo(x.key);
+        if (cmp < 0) x.left = delete(x.left, key);
+        else if (cmp > 0) x.right = delete(x.right, key);
+        else {
+            // 没有子节点或只有一个子节点的结点
+            if (x.left == null) return x.right;
+            if (x.right == null) return x.left;
+
+            // 拥有两个字结点
+            //当前结点用t保存
+            Node t = x;
+            //在右子树中找最小结点（后继结点， 也可用前继节点）
+            x = min(t.right);
+            // 删除后继结点 (x的右子树指向删除了后继结点后的右子树)
+            x.right = deleteMin(t.right);
+            x.left = t.left;
+        }
+        x.N = size(x.left) + size(x.right) +1;
+        return x;
+    }
 
 
 
