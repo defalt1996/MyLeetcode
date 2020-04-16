@@ -20,7 +20,8 @@ public class BubbleSort implements IArraySort {
 
         int[] arr = Arrays.copyOf(arraySource, arraySource.length);
         for (int i=0; i< arr.length; i++){
-            for (int j=i; j< arr.length - i -1; j++){
+            //内部每次把最大的一个冒泡到最后，然后内部循环长度减少一个 （length - i -1）
+            for (int j=0; j< arr.length - i -1; j++){
                 int temp = 0;
                 if (arr[j] > arr[j+1]){
                     temp = arr[j];
@@ -38,19 +39,22 @@ public class BubbleSort implements IArraySort {
 
         int[] arr = Arrays.copyOf(arraySource, arraySource.length);
         for (int i=0; i< arr.length; i++){
-            boolean isSorted = true;
+            //设置一个flag 先置为内部循环没被交换过
+            boolean isSorted = false;
 
-            for (int j = i; j< arr.length-i-1; j++){
+            for (int j = 0; j< arr.length-i-1; j++){
 
                 if (arr[j] > arr[j+1]){
                     int temp = arr[j];
                     arr[j] = arr[j+1];
                     arr[j+1] = temp;
-                    isSorted = false;
+                    // 交换过了，置为true
+                    isSorted = true;
                 }
 
             }
-            if (isSorted == true) break;
+            // 如果一遍下来都未交换过，证明已经有序了 停止外部循环 结束
+            if (!isSorted) break;
 
         }
 
@@ -83,9 +87,10 @@ public class BubbleSort implements IArraySort {
     public static void main(String[] args) {
         BubbleSort bubbleSort = new BubbleSort();
 
+        int[] result = bubbleSort.sort(TestData.testData_4);
 //        int[] result = bubbleSort.sort(TestData.testData_1);
 //        int[] result = bubbleSort.sort2(TestData.testData_1);
-        int[] result = bubbleSort.sort3(TestData.testData_1);
+//        int[] result = bubbleSort.sort3(TestData.testData_1);
         for (int i: result){
             System.out.println(i);
         }

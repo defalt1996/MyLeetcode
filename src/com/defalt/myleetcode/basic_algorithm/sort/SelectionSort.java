@@ -19,7 +19,7 @@ public class SelectionSort implements IArraySort{
 
         for (int i = 0; i<arr.length ; i++){
 
-            // 最小元素的坐标
+            // 最小元素的坐标，先设为当前i（第一个的位置）
             int minIndex = i;
 
             // 遍历剩下未排序的元素，记下最小坐标，与i交换

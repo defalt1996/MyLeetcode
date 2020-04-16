@@ -12,6 +12,16 @@ import java.util.Arrays;
 public class ShellSort implements IArraySort {
 
 
+    public static void main(String[] args) {
+        ShellSort shellSort = new ShellSort();
+//        int[] result = shellSort.sort(TestData.testData_0);
+        int[] result = shellSort.sort(TestData.testData_1);
+        for (int i : result) {
+            System.out.println(i);
+        }
+
+    }
+
     // 五分钟算法的实现
     public int[] sort1(int[] arraySource) {
 
@@ -25,6 +35,7 @@ public class ShellSort implements IArraySort {
         }
 
         while (gap > 0) {
+            //外循环，换组
             for (int i = gap; i < length; i++) {
                 int tmp = arr[i];
                 int j = i - gap;
@@ -32,11 +43,9 @@ public class ShellSort implements IArraySort {
                 //组中排序
                 while (j >= 0 && arr[j] > tmp) {
                     arr[j + gap] = arr[j];
-
                     // 游标走到组中上一个元素
                     j -= gap;
                 }
-
                 //因为在组中排序的最后会减掉一个间距，所以这里要把间距加上, i 坐标放temp，和插入排序类似
                 arr[j + gap] = tmp;
             }
@@ -67,7 +76,6 @@ public class ShellSort implements IArraySort {
                         arr[k + gap] = arr[k];
                         arr[k] = value;
                     }
-
                 }
             }
         }
@@ -99,16 +107,6 @@ public class ShellSort implements IArraySort {
         }
 
         return arr;
-    }
-
-    public static void main(String[] args) {
-        ShellSort shellSort = new ShellSort();
-//        int[] result = shellSort.sort(TestData.testData_0);
-        int[] result = shellSort.sort(TestData.testData_1);
-        for (int i : result) {
-            System.out.println(i);
-        }
-
     }
 
 }

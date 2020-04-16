@@ -14,4 +14,6 @@ public class TestData {
 
     public static int[] testData_2 = {8,8,8,8,8};
 
+    public static int[] testData_4 = {5,4,3,2,1};
+
 }

@@ -23,6 +23,7 @@ public class InsertionSort implements IArraySort{
             //记下当前位置元素值，移动元素的时候位置会被挤掉
             int value = arr[i];
             int j = 0;
+            // 将i插入之前的元素中，实际上是将i每次对之前的元素比较，如果比i大就将其往后挪一个，然后自己的坑位赋值value
             for ( j = i-1; j>= 0; j--){
                 // 移动数据记得从队尾开始往外拉！
                 if (value< arr[j]){

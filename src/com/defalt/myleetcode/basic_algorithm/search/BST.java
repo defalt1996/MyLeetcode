@@ -9,7 +9,7 @@ public class BST<Key extends Comparable<Key>, Value> {
     // 根节点
     private Node root;
 
-    private class Node{
+    private class Node {
 
         private Key key;
         private Value value;
@@ -21,81 +21,78 @@ public class BST<Key extends Comparable<Key>, Value> {
         private int N;
 
         //Constructor
-        public Node(Key key, Value value, int N){
+        public Node(Key key, Value value, int N) {
             this.key = key;
             this.value = value;
             this.N = N;
         }
 
 
-
-
-
     }
 
-    public int size(){
+    public int size() {
         return size(root);
     }
 
     private int size(Node x) {
-        if (x == null ) return 0;
+        if (x == null) return 0;
         else return x.N;
     }
 
-    public Value get(Key key){
+    public Value get(Key key) {
         return get(root, key);
     }
 
-    private Value get(Node x, Key key){
+    private Value get(Node x, Key key) {
 
-        if (x == null){
+        if (x == null) {
             return null;
         }
         int cmp = key.compareTo(x.key);
-        if (cmp < 0){
+        if (cmp < 0) {
             return get(x.left, key);
-        }else if ( cmp> 0 ){
+        } else if (cmp > 0) {
             return get(x.right, key);
-        }else {
+        } else {
             return x.value;
         }
     }
 
-    public void put(Key key, Value value){
+    public void put(Key key, Value value) {
         root = put(root, key, value);
     }
 
-    private Node put(Node x, Key key, Value value){
+    private Node put(Node x, Key key, Value value) {
 
-        if ( x == null){
+        if (x == null) {
             return new Node(key, value, 1);
         }
         int cmp = key.compareTo(x.key);
-        if (cmp < 0){
+        if (cmp < 0) {
             x.left = put(x.left, key, value);
-        }else if ( cmp >0){
+        } else if (cmp > 0) {
             x.right = put(x.right, key, value);
-        }else {
+        } else {
             x.value = value;
         }
-        x.N = size(x.left) + size(x.right) +1;
+        x.N = size(x.left) + size(x.right) + 1;
         return x;
     }
 
-    public Key floor(Key key){
+    public Key floor(Key key) {
         Node x = floor(root, key);
         if (x == null) return null;
         return x.key;
     }
 
-    private Node floor(Node x, Key key){
+    private Node floor(Node x, Key key) {
 
         if (x == null) return null;
         int cmp = key.compareTo(x.key);
-        if (cmp == 0){
+        if (cmp == 0) {
             return x;
         }
-        if (cmp < 0){
+        if (cmp < 0) {
             floor(x.left, key);
         }
         Node t = floor(x.right, key);
@@ -105,37 +102,37 @@ public class BST<Key extends Comparable<Key>, Value> {
             return x;
     }
 
-    public Key min(){
+    public Key min() {
         return min(root).key;
     }
 
     private Node min(Node x) {
-        if (x.left == null){
+        if (x.left == null) {
             return x;
         }
         return min(x.left);
     }
 
-    public void deleteMin(){
+    public void deleteMin() {
         deleteMin(root);
     }
 
     private Node deleteMin(Node x) {
-        if (x.left == null){
+        if (x.left == null) {
             return x.right;
         }
         x.left = deleteMin(x.left);
-        x.N = size(x.left) + size(x.right) +1;
+        x.N = size(x.left) + size(x.right) + 1;
         return x;
     }
 
-    public void delete(Key key){
+    public void delete(Key key) {
         root = delete(root, key);
     }
 
-    private Node delete(Node x, Key key){
+    private Node delete(Node x, Key key) {
 
-        if (x == null){
+        if (x == null) {
             return null;
         }
         int cmp = key.compareTo(x.key);
@@ -155,10 +152,9 @@ public class BST<Key extends Comparable<Key>, Value> {
             x.right = deleteMin(t.right);
             x.left = t.left;
         }
-        x.N = size(x.left) + size(x.right) +1;
+        x.N = size(x.left) + size(x.right) + 1;
         return x;
     }
-
 
 
 }
