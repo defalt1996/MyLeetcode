@@ -105,7 +105,6 @@ public class ShellSort implements IArraySort {
                 arr[j + increment] = temp;
             }
         }
-
         return arr;
     }
 
