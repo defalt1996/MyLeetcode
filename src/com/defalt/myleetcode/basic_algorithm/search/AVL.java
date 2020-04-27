@@ -15,6 +15,11 @@ public class AVL<T extends Comparable<T>> {
         AVLTreeNode<T> left;
         AVLTreeNode<T> right;
 
+        public AVLTreeNode(T key, AVLTreeNode<T> left, AVLTreeNode<T> right) {
+            this.key = key;
+            this.left = left;
+            this.right = right;
+        }
     }
 
     private int height(AVLTreeNode<T> node){
@@ -42,7 +47,7 @@ public class AVL<T extends Comparable<T>> {
         // TODO: 2020/4/26
         //更新高度+1的理解？
         node.height = Math.max(height(node.left), height(node.right)) + 1;
-        node_lc.height = Math.max(height(node_lc.left), node.height) + 1;;
+        node_lc.height = Math.max(height(node_lc.left), node.height) + 1;
 
         return node_lc;
     }
@@ -73,6 +78,56 @@ public class AVL<T extends Comparable<T>> {
         return RR_rotate(node);
     }
 
+    // 插入 (迭代) return：插入的结点
+    private AVLTreeNode<T> insert(AVLTreeNode<T> tree, T key){
+
+        // 若该插入的位置为空 新建结点
+        if (tree == null){
+
+            tree = new AVLTreeNode<>(key, null, null);
+
+        }else {
+
+            // 将要插入的key与当前结点比较
+            int cmp = key.compareTo(tree.key);
+
+            //插入左子树
+            if (cmp < 0){
+                // 直接插入当前结点的左孩子位置
+                tree.left = insert(tree.left, key);
+                // 如果插入后失去平衡
+                if ((height(tree.left) - height(tree.right)) > 1){
+
+                    // 判断是插入了最小失衡结点的左子树/右子树 ——的左子树
+                    if (key.compareTo(tree.left.key) < 0){
+                        // 如果比最小失衡结点的左子树小，那么就是在左子树上，执行右旋
+                        tree = LL_Rotate(tree);
+                    }else {
+                        // 否则是右子树的左子树，执行LR
+                        tree = LR_rotate(tree);
+                    }
+                }
+                // 插入当前结点的右孩子位置
+            }else if (cmp > 0){
+                tree.right = insert(tree.right, key);
+
+                // 失衡
+                if ((height(tree.right) - height(tree.left)) > 1){
+                    // 判断是插在最小失衡节点的左子树还是右子树
+                    if (key.compareTo(tree.right.key) > 0){
+                        tree = RR_rotate(tree);
+                    }else {
+                        tree = RL_rotate(tree);
+                    }
+                }
+            }else { // cmp == 0， 存在该key,不可添加
+
+            }
+        }
+
+        tree.height = Math.max(height(tree.left), height(tree.right)) + 1;
+        return tree;
+    }
 
 
 }
