@@ -61,6 +61,17 @@ public class AVL<T extends Comparable<T>> {
         return node_rc;
     }
 
+    // LR 先左旋后右旋 （左旋最小失衡结点的左孩子，然后右旋自己）
+    private AVLTreeNode<T> LR_rotate(AVLTreeNode<T> node){
+        RR_rotate(node.left);
+        return LL_Rotate(node);
+    }
+
+    // LR 先左旋后右旋 （左旋最小失衡结点的左孩子，然后右旋自己）
+    private AVLTreeNode<T> RL_rotate(AVLTreeNode<T> node){
+        LL_Rotate(node.right);
+        return RR_rotate(node);
+    }
 
 
 
